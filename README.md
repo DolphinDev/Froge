@@ -16,3 +16,8 @@ This includes a timestamp, datafile & more goodies.
 Working code = 1 day
 Utils = 4 days
 
+## Contact
+
+- [ ] Twitter
+-  @Darkxxz
+
