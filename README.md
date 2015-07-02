@@ -8,7 +8,11 @@ This includes a timestamp, datafile & more goodies.
 ## NEED TO FIX
 - [ ] FILE NOT OPENING
 - [ ] Connection to XBees
-Timescale: 1 day for thermo to work
-4 days for time & other utils.
 
+
+
+
+## TIMESCALE
+Working code = 1 day
+Utils = 4 days
 
