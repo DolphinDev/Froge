@@ -1,20 +1,10 @@
 
 /*
-    ThemoSketch is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    ThemoSketch is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    
     ====================================================== 
-    
-    (c) Modified by DolphinDev (Miguel H) & Milos.
-    
+    ThermoSketch is free software: you can redistribute it and/or modify; (c).
+    We hope that you don't redistribute this for money; As this is for free :)
+    (c) Modified by DolphinDev (Miguel H) & Milos
     (c) Credits to bildr for original code.
-    
     ======================================================
 */
 
