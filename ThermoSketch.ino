@@ -1,6 +1,6 @@
 
 /*
- ThemoSketch   is free software: you can redistribute it and/or modify
+    ThemoSketch is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
@@ -9,11 +9,13 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     
-    We ask you very deeply to not sell this.
+    ====================================================== 
     
     (c) Modified by DolphinDev (Miguel H) & Milos.
     
     (c) Credits to bildr for original code.
+    
+    ======================================================
 */
 
 
