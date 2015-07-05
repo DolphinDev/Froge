@@ -4,7 +4,7 @@
     ThermoSketch is free software: you can redistribute it and/or modify; (c).
     We hope that you don't redistribute this for money; As this is for free :)
     (c) Modified by DolphinDev (Miguel H) & Milos
-    (c) Credits to bildr for original code.
+    (c) Credits to bildr for original code..
     ======================================================
 */
 
@@ -19,7 +19,7 @@
 
 
  /**
-  * Creatig a XBee object
+  * Creating a XBee object
   */
  //XBee xbee = XBee();
 int tmp102Address = 0x48;
