@@ -13,10 +13,9 @@ This includes a timestamp, datafile & more goodies.
 
 
 ## TIMESCALE
-Working code = 1 day
-Utils = 4 days
+Thermometer = 1 day
+Utils = 5 days
 
-## Contact
 
 
 
