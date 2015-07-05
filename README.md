@@ -6,8 +6,8 @@ This includes a timestamp, datafile & more goodies.
 (c) Original Code by blidr.
 (c) Modified by DolphinDev (Miguel H) & Milos.
 ## NEED TO FIX
-- [ ] FILE NOT OPENING
 - [ ] Connection to XBees
+- [ ] Time
 
 
 
