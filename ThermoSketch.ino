@@ -10,7 +10,7 @@
 
 
 
-#include <XBee.h>
+ //# include <XBee.h>
 #include <Time.h>
 #include <Wire.h>
 #include <SPI.h>
@@ -21,7 +21,7 @@
  /**
   * Creatig a XBee object
   */
- XBee xbee = XBee();
+ //XBee xbee = XBee();
 int tmp102Address = 0x48;
 const int chipSelect = 4;
 
@@ -30,55 +30,49 @@ void setup(){
  Serial.begin(9600); //Set our baud rate to 9600 for our serial connection
  Wire.begin(); // Initiate the Wire library and join the I2C bus
  setTime(11,3,0,2,6,15);
- xbee.setSerial(Serial);
+ //xbee.setSerial(Serial);
  uint8_t payload[] = { 'D','A','T','A'};
- XBeeAddress64 addr64 = XBeeAddress64(0x0013a200,0x403e00f30);
+ //XBeeAddress64 addr64 = XBeeAddress64(0x0013a200,0x403e00f30);
  //Create a request
- ZBTxRequest request = ZBTxRequest(addr64,payload,sizeof(payload));
- xbee.send(request);
+ //ZBTxRequest request = ZBTxRequest(addr64,payload,sizeof(payload));
+ //xbee.send(request);
  Serial.println();
- Serial.println("Initializing SD Card....");
+ Serial.print("Initializing SD Card....");
+ delay(2000);
  pinMode(10,OUTPUT);
 while(!Serial){
   //waiting for serial
-  Serial.println("##########################################");
+
   Serial.println("Waiting for Serial Connection...");
-  Serial.println("##########################################");
+
 }
-Serial.println("##########################################");
-Serial.println("Connecting to SD Card...");
-Serial.println("##########################################");
+
 if(!SD.begin(chipSelect)){
-  Serial.println("==========================================");
-  Serial.println("ERROR: Card not present or connection fail");
-  Serial.println("==========================================");
+Serial.print("operation failed");
   
   return;
+} else {
+  Serial.print("done");
 }
-Serial.println("##########################################");
-Serial.println("SD Card has been fully connected to Arduino.");
-Serial.println("##########################################");
 
+Serial.println();
 /**
  * SD File Creation
  */
 
-
-if(SD.exists("thermofile.txt")){
-  Serial.println("############################");
-  Serial.println("Data file exists");
-  Serial.println("############################");
+Serial.print("Checking for data file...");
+delay(2000);
+if(SD.exists("data.txt")){
+  Serial.print("done");
   
 }
 else {
-  Serial.println("=========================");
-  Serial.println("Data file does not exists");
-  Serial.println("=========================");
-  Serial.println("######################");
-Serial.println("Creating thermofile...");
-Serial.println("######################");
-myFile = SD.open("thermofile.txt", FILE_WRITE);
-myFile.close();
+
+ Serial.print("operation failed, creating data file");
+ 
+Serial.println("Data file created!");
+File file = SD.open("data.txt", FILE_WRITE);
+file.close();
  
 }
 
@@ -99,27 +93,30 @@ void digitalClockDisplay(){
 }
 
 void loop(){
- String dataString = "";
+  delay(1000);
+  Serial.println();
+  Serial.println();
+  float celsius = getTemperature(); // Get the temperature in C and save it as a float called celsius.
+ Serial.print("Celsius: "); // Print our description of the temp
+ Serial.println(celsius); // Print our temp in C
+ float fahrenheit = (1.8 * celsius) + 32;  // Get the temperature in C and save it as a float called fahrenheit after converting it from celsius.
+ Serial.print("Fahrenheit: "); // Print our description of the temp.
+ Serial.println(fahrenheit); // Print the temp in F
+ getDigitalClockDisplay();
+Serial.println("=======================");
 
- for(int analogPin = 0; analogPin < 3; analogPin++){
-  int sens = analogRead(analogPin);
-  dataString += String(sens);
-  if(analogPin < 2){
-    dataString += ",";
-  }
- }
- File themofile = SD.open("thermofile.txt",FILE_WRITE);
 
-  //Check dat
+
+
+File themofile = SD.open("data.txt",FILE_WRITE);
+
+  
   if(themofile){
-    Serial.println("###############");
-    Serial.println("Opening ThemoFile");
-    Serial.println("###############");
-    themofile.println(dataString);
+    themofile.println(setFormatted(themofile,celsius,fahrenheit));
     themofile.close();
     //Closing Connection to the data.
     //Printing the data to serial console.
-    Serial.println(dataString);
+   
   }
   else {
     Serial.println("========================");
@@ -127,22 +124,6 @@ void loop(){
     Serial.println("========================");
     
   }
-  
-
-  float celsius = getTemperature(); // Get the temperature in C and save it as a float called celsius.
- 
- Serial.print("Celsius: "); // Print our description of the temp
- Serial.println(celsius); // Print our temp in C
-
- 
- 
- 
- float fahrenheit = (1.8 * celsius) + 32;  // Get the temperature in C and save it as a float called fahrenheit after converting it from celsius.
- Serial.print("Fahrenheit: "); // Print our description of the temp.
- Serial.println(fahrenheit); // Print the temp in F
- getDigitalClockDisplay();
-Serial.println("=======================");
-
  Serial.write(13);
  delay(30000);
  
@@ -165,7 +146,6 @@ float getTemperature(){
  float celsius = TemperatureSum*0.0625; // Convert our temp to celsius.
  return celsius; // Return our result to be printed.
 }
-
 void getDigitalClockDisplay(){
   // digital clock
   Serial.print(hour());
@@ -176,6 +156,7 @@ void getDigitalClockDisplay(){
   Serial.print(" ");
   Serial.print(year());
   Serial.println();
+
 }
 
 
@@ -185,3 +166,27 @@ void printDigits(int digits){
   Serial.print('0');
   Serial.print(digits);
 }
+
+String setFormatted(File file, float celsius, float z){
+
+
+file.print("Celcius: ");
+file.println(celsius);
+
+file.println();
+
+file.print("Fahrenheit: ");
+file.println(z);
+file.println(getTime());
+file.println("============================");
+
+  
+  }
+
+
+
+ String getTime(){
+
+  String asxc = String(hour()) + "/" + String(minute()) + "/" + String(second());  
+  return asxc;
+  }
