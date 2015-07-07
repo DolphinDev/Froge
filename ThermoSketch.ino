@@ -1,43 +1,47 @@
 
+
+
 /*
     ====================================================== 
     ThermoSketch is free software: you can redistribute it and/or modify; (c).
     We hope that you don't redistribute this for money; As this is for free :)
     (c) Modified by DolphinDev (Miguel H) & Milos
-    (c) Credits to bildr for original code..
+    (c) Credits to bildr for original code.
     ======================================================
 */
 
 
 
- //# include <XBee.h>
+// #include <XBee.h>
 #include <Time.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
-
+#include <Adafruit_NeoPixel.h>
 
 
  /**
-  * Creating a XBee object
+  * Creatig a XBee object
   */
- //XBee xbee = XBee();
+// XBee xbee = XBee();
 int tmp102Address = 0x48;
 const int chipSelect = 4;
+
 
 File myFile;
 void setup(){
  Serial.begin(9600); //Set our baud rate to 9600 for our serial connection
  Wire.begin(); // Initiate the Wire library and join the I2C bus
- setTime(11,3,0,2,6,15);
+ setTime(11,5,0,2,6,15);
  //xbee.setSerial(Serial);
- uint8_t payload[] = { 'D','A','T','A'};
+ //uint8_t payload[] = { 'D','A','T','A'};
  //XBeeAddress64 addr64 = XBeeAddress64(0x0013a200,0x403e00f30);
  //Create a request
  //ZBTxRequest request = ZBTxRequest(addr64,payload,sizeof(payload));
  //xbee.send(request);
  Serial.println();
- Serial.print("Initializing SD Card....");
+ test();
+ Serial.print("Initialising SD Card....");
  delay(2000);
  pinMode(10,OUTPUT);
 while(!Serial){
@@ -93,6 +97,8 @@ void digitalClockDisplay(){
 }
 
 void loop(){
+  
+String dataString = "testing12345678910";
   delay(1000);
   Serial.println();
   Serial.println();
@@ -102,29 +108,40 @@ void loop(){
  float fahrenheit = (1.8 * celsius) + 32;  // Get the temperature in C and save it as a float called fahrenheit after converting it from celsius.
  Serial.print("Fahrenheit: "); // Print our description of the temp.
  Serial.println(fahrenheit); // Print the temp in F
+ 
  getDigitalClockDisplay();
 Serial.println("=======================");
 
 
 
-
 File themofile = SD.open("data.txt",FILE_WRITE);
+
+
+
+
+
+
 
   
   if(themofile){
-    themofile.println(setFormatted(themofile,celsius,fahrenheit));
-    themofile.close();
+    
+  
+
+themofile.println(setFormatted(themofile,celsius,fahrenheit));
+themofile.close();
+
+Serial.println(setFormatted(themofile,celsius,fahrenheit));
+    
     //Closing Connection to the data.
     //Printing the data to serial console.
    
-  }
-  else {
+  } else {
     Serial.println("========================");
-    Serial.println("ERROR: Exception while opening themofile.txt");
+    Serial.println("ERROR: Exception while opening data.txt");
     Serial.println("========================");
     
   }
- Serial.write(13);
+ 
  delay(30000);
  
  
@@ -170,17 +187,20 @@ void printDigits(int digits){
 String setFormatted(File file, float celsius, float z){
 
 
-file.print("Celcius: ");
-file.println(celsius);
+String format = "Celcius: " + String(celsius) + " : " + "Fahrenheit: " + String(z) + "      " + getTime();
+file.println(format);
 
-file.println();
 
-file.print("Fahrenheit: ");
-file.println(z);
-file.println(getTime());
-file.println("============================");
+return format;
+}
 
-  
+
+String test(){
+  return "hello";
+  }
+
+void printFile(File file){
+ Serial.println(file.read());
   }
 
 
