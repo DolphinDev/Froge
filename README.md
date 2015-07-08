@@ -1,4 +1,4 @@
-# ThermoSketch
+# Froge ("ThermoSketch")
 Arduino Sketch.
 This arduino sketch measures the celcius & fahrenheit.
 This includes a timestamp, datafile & more goodies.
