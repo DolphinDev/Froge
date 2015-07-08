@@ -14,6 +14,7 @@ for some apparent reason; Even though im new to this, if you execute file.read()
 
 
 
+
 ## Things used;
 
 - [ ] Time Library
@@ -31,10 +32,17 @@ for some apparent reason; Even though im new to this, if you execute file.read()
     (c) Credits to bildr for original code..
     ======================================================
 
-## LICENSE: 
+##  LICENSE:
 
-  ====================================================== 
+
+    ====================================================== 
     ThermoSketch is free software: you can redistribute it and/or modify; (c).
-    We hope that you don't redistribute this for money; As this is for free.
-    Sketch developed by Miguel H. & Help of Milos for setting sensors & such.
-  ======================================================
+    We hope that you don't redistribute this for money; As this is for free :)
+    (c) Made by Miguel H (DolphinDev) & Milos
+    (c) Sketch-frame made by Miguel H (DolphinDev)
+    ======================================================
+    
+    ## FROGE
+    Why is this named froge and not ThermoSketch?
+    Reccently we decided to name this sketch because of our beloved frog we named "froge", then we decided why the heck not! its a funny name
+    
