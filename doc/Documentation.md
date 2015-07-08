@@ -20,9 +20,8 @@ for some apparent reason; Even though im new to this, if you execute file.read()
 - [ ] XBee
 - [ ] Wire
 - [ ] SD & SPI
-- [ ] Original code supplied by bildr
 
-## LICENSE:
+## OLD LICENSE:
 
 
     ====================================================== 
@@ -32,4 +31,10 @@ for some apparent reason; Even though im new to this, if you execute file.read()
     (c) Credits to bildr for original code..
     ======================================================
 
+## LICENSE: 
 
+  ====================================================== 
+    ThermoSketch is free software: you can redistribute it and/or modify; (c).
+    We hope that you don't redistribute this for money; As this is for free.
+    Sketch developed by Miguel H. & Help of Milos for setting sensors & such.
+  ======================================================
