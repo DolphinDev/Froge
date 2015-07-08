@@ -42,7 +42,7 @@ for some apparent reason; Even though im new to this, if you execute file.read()
     (c) Sketch-frame made by Miguel H (DolphinDev)
     ======================================================
     
-    ## FROGE
-    Why is this named froge and not ThermoSketch?
-    Reccently we decided to name this sketch because of our beloved frog we named "froge", then we decided why the heck not! its a funny name
     
+    
+## FROGE: 
+*inc soon*
