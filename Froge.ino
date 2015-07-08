@@ -3,7 +3,7 @@
 
 /*
     ====================================================== 
-    ThermoSketch is free software: you can redistribute it and/or modify; (c).
+    Froge ("ThermoSketch") is free software: you can redistribute it and/or modify; (c).
     We hope that you don't redistribute this for money; As this is for free :)
     (c) Modified by DolphinDev (Miguel H) & Milos
     (c) Credits to bildr for original code.
