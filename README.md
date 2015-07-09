@@ -1,20 +1,10 @@
-# Froge ("ThermoSketch")
-Arduino Sketch.
-This arduino sketch measures the celcius & fahrenheit.
-This includes a timestamp, datafile & more goodies.
+## Froge™
+Reads altitude,pressure and more :)...
 
-(c) Original Code by blidr.
-(c) Modified by DolphinDev (Miguel H) & Milos.
-## NEED TO FIX
-- [ ] Connection to XBees
-- [ ] Time
+## TODO:
+- [ ] Create app for sync
+- [ ] XBee!
 
-
-
-
-## TIMESCALE
-Thermometer = 1 day
-Utils = 5 days
 
 
 
